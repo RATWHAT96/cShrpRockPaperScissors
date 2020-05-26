@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// need to do input validation for the strings:
+// could use while loop but maybe there is a better method
+
+
+
 namespace ROCKPAPERSCISSORS
 {
     class Program
@@ -78,7 +83,7 @@ namespace ROCKPAPERSCISSORS
                                 scorePlayer ++;
                             }
                             break;
-
+                            
                         case 3:
                             inputCPU = "SCISSORS";
                                                 Console.WriteLine("Computer chose ROCK");
@@ -97,13 +102,12 @@ namespace ROCKPAPERSCISSORS
                                 Console.WriteLine("DRAW!\n\n");
                             }
                             break;
-                            
                         default:
                             Console.WriteLine("Invalid Entry!!!");
                             break;
                     }
                 }
-
+                Console.WriteLine($"\n\nSCORES: \tPLAYER:\t{scorePlayer} \tCOMPUTER\t{scoreComputer}\n\n");
                 Console.WriteLine("Keep Playing?\n");
                 Console.WriteLine("YES  OR   NO?\n");
                 inputPlayer = Console.ReadLine();
