@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// need to do input validation for the strings:
+// need to do input validation for the strings and the number of rounds:
 // could use while loop but maybe there is a better method
+
+//Change the while loop with scores to a while loop with the number of rounds and winner decided based of the greater score
 
 
 
@@ -17,26 +19,23 @@ namespace ROCKPAPERSCISSORS
         {
             string inputPlayer, inputCPU;
             int randomInt; // for the CPU input
-            int scorePlayer = 0;
-            int scoreComputer = 0;
+
             bool keepPlaying = true;
             
             while(keepPlaying == true){
-                Console.WriteLine("Best of ???\n");
+                Console.WriteLine("Best of ...  ???\n");
                 int numberOfRounds = Convert.ToInt32(Console.ReadLine());
                 double numberOfWins;
-
+                int scorePlayer = 0;
+                int scoreComputer = 0;
                 if (numberOfRounds % 2 == 0){
                     numberOfWins = (Math.Round(numberOfRounds/1.9) + 1);
                 }
                 else {
                     numberOfWins = Math.Round(numberOfRounds/1.9);
                 }
-                Console.WriteLine(numberOfWins);
 
                 while(scoreComputer < numberOfWins && scorePlayer < numberOfWins){
-                    Console.WriteLine(scoreComputer);
-                    Console.WriteLine(scorePlayer);
                     Console.WriteLine("Choose Between ROCK PAPER & SCISSOR?   ");
                     inputPlayer = Console.ReadLine();
 
@@ -106,11 +105,12 @@ namespace ROCKPAPERSCISSORS
                             Console.WriteLine("Invalid Entry!!!");
                             break;
                     }
-                }
                 Console.WriteLine($"\n\nSCORES: \tPLAYER:\t{scorePlayer} \tCOMPUTER\t{scoreComputer}\n\n");
+                }
                 Console.WriteLine("Keep Playing?\n");
                 Console.WriteLine("YES  OR   NO?\n");
                 inputPlayer = Console.ReadLine();
+                Console.Clear();
                 if(inputPlayer == "NO"){
                     keepPlaying = false;
                 }
