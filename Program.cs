@@ -4,12 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// need to do input validation for the strings and the number of rounds:
-// could use while loop but maybe there is a better method
-
-//Change the while loop with scores to a while loop with the number of rounds and winner decided based of the greater score
-
-
+// need to do input validation for the strings and the number of rounds, sort out try and catch
 
 namespace ROCKPAPERSCISSORS
 {
@@ -22,12 +17,21 @@ namespace ROCKPAPERSCISSORS
 
             bool keepPlaying = true;
             
+            // Main game loop
             while(keepPlaying == true){
-                Console.WriteLine("Best of ...  ???\n");
-                int numberOfRounds = Convert.ToInt32(Console.ReadLine());
+
                 double numberOfWins;
                 int scorePlayer = 0;
                 int scoreComputer = 0;
+                
+                Console.WriteLine("Best of ...  ???\n");
+                try{
+                    int numberOfRounds = Convert.ToInt32(Console.ReadLine());
+                } catch(System.FormatException) {
+                    Console.WriteLine("Please input an interger");
+                }
+                
+                // Logic to determine the number of wins necassary
                 if (numberOfRounds % 2 == 0){
                     numberOfWins = (Math.Round(numberOfRounds/1.9) + 1);
                 }
@@ -35,6 +39,7 @@ namespace ROCKPAPERSCISSORS
                     numberOfWins = Math.Round(numberOfRounds/1.9);
                 }
 
+                // rock paper scissors loop
                 while(scoreComputer < numberOfWins && scorePlayer < numberOfWins){
                     Console.WriteLine("Choose Between ROCK PAPER & SCISSOR?   ");
                     inputPlayer = Console.ReadLine();
@@ -43,7 +48,8 @@ namespace ROCKPAPERSCISSORS
                     
                     randomInt = rnd.Next(1,4);
 
-                    switch (randomInt)
+                    //Determises the outcome of the round
+                    switch (randomInt) 
                     {
                         case 1:
                             inputCPU = "ROCK";
@@ -118,3 +124,7 @@ namespace ROCKPAPERSCISSORS
         }
     }
 }
+
+
+//Potential changes
+//Change the while loop with scores to a while loop with the number of rounds and winner decided based of the greater score
