@@ -23,10 +23,11 @@ namespace ROCKPAPERSCISSORS
                 double numberOfWins;
                 int scorePlayer = 0;
                 int scoreComputer = 0;
-                
+                int numberOfRounds = 0;
+
                 Console.WriteLine("Best of ...  ???\n");
                 try{
-                    int numberOfRounds = Convert.ToInt32(Console.ReadLine());
+                    numberOfRounds = Convert.ToInt32(Console.ReadLine());
                 } catch(System.FormatException) {
                     Console.WriteLine("Please input an interger");
                 }
@@ -128,3 +129,4 @@ namespace ROCKPAPERSCISSORS
 
 //Potential changes
 //Change the while loop with scores to a while loop with the number of rounds and winner decided based of the greater score
+// need to do input validation for the strings and the number of rounds, sort out try and catch
